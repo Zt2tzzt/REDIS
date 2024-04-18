@@ -6,7 +6,7 @@ List 列表，一般用于存储和操作一组有顺序的数据，和数组的
 
 LPUSH、RPUSH 命令，分别用于将元素添加到列表的头部或者尾部。
 
-语法：`LPUSH 键名 添加的元素`
+语法：`LPUSH key element [element ...]`；`RPUSH key element [element ...]`
 
 添加一个列表 letter，其中有一个元素 a，元素 b，元素 c、d、e
 
@@ -32,7 +32,7 @@ LPUSH、RPUSH 命令，分别用于将元素添加到列表的头部或者尾部
 
 LRANGE 命令，用于获取列表的内容
 
-语法：`LRANGE 键名 起始位置 结束位置`
+语法：`LRANGE key start stop`
 
 ```bash
 > LRANGE letter 0 -1
@@ -44,11 +44,15 @@ LRANGE 命令，用于获取列表的内容
 6) "f"
 ```
 
-0，表示第一个元素；-1，表示最后一个元素。这种表示方法，就是获取列表中的所有元素。
+`0`，表示第一个元素；`-1`，表示最后一个元素。这种表示方法，就是获取列表中的所有元素。
 
 ## 三、LLEN 命令
 
 LLEN 命令，查看列表的长度。
+
+语法：`LLEN key`
+
+查看键 letter 列表的长度：
 
 ```bash
 > LLEN letter
@@ -58,6 +62,8 @@ LLEN 命令，查看列表的长度。
 ## 四、LPOP、RPOP 命令
 
 LPOP、RPOP 命令，分别用于从列表的头部和尾部删除元素。会返回被删除的元素
+
+语法：`LPOP key [count]`；`RPOP key [count]`
 
 使用 RPOP 命令，删除列表尾部的元素。
 
@@ -78,22 +84,30 @@ LPOP、RPOP 命令，分别用于从列表的头部和尾部删除元素。会�
 
 LTRIM 命令，删除列表中指定范围以外的元素。
 
+语法：`LTRIM key start stop`
+
 创建一个列表 letter，在其中加入元素 a、b、c、d、e
 
 使用 LTRIME 命令，删除索引为 1-3 以外的元素。
 
 ```bash
-> LTRIM letter 1 3
-"OK"
-```
+> LPUSH letter a b c d e
+(integer) 5
 
-再查看列表中的元素：
-
-```bash
 > LRANGE letter 0 -1
 1) "e"
 2) "d"
 3) "c"
+4) "b"
+5) "a"
+
+> LTRIM letter 1 3
+"OK"
+
+> LRANGE letter 0 -1
+1) "d"
+2) "c"
+3) "b"
 ```
 
 ## 六、简单的消息队列

@@ -14,10 +14,10 @@ SortedSet  有序集合的元素是唯一的，但是元素关联的分数，是
 
 语法：`ZADD key [NX | XX] [GT | LT] [CH] [INCR] score member [score member ...]`
 
-添加一个 result 有序集合，在其中存入元素，高校录取分数作为分数，高校名称作为成员。
+添加一个 university 有序集合，在其中存入元素，高校录取分数作为分数，高校名称作为成员。
 
 ```bash
-> ZADD result 680 清华 660 北大 650 复旦 640 浙大
+> ZADD university 680 清华 660 北大 650 复旦 640 浙大
 (integer) 4
 ```
 
@@ -25,8 +25,10 @@ SortedSet  有序集合的元素是唯一的，但是元素关联的分数，是
 
 ZRANGE 命令，用于查看有序集合中的元素：
 
+语法：`RANGE key start stop [BYSCORE | BYLEX] [REV] [LIMIT offset count] [WITHSCORES]`
+
 ```bash
-> ZRANGE result 0 -1
+> ZRANGE university  0 -1
 浙大
 复旦
 北大
@@ -36,7 +38,7 @@ ZRANGE 命令，用于查看有序集合中的元素：
 在输出成员的同时，输出分数
 
 ```bash
-> ZRANGE result 0 -1 WITHSCORES
+> ZRANGE university  0 -1 WITHSCORES
 浙大
 640
 复旦
@@ -51,10 +53,12 @@ ZRANGE 命令，用于查看有序集合中的元素：
 
 ZSCORE 命令，查看有序集合中某个成员的分数：
 
-查看 result 有序集合中，“清华”的分数。
+语法：`ZSCORE key member`
+
+查看 university  有序集合中，“清华”的分数。
 
 ```bash
-> ZSCORE result 清华
+> ZSCORE university 清华
 680
 ```
 
@@ -62,10 +66,12 @@ ZSCORE 命令，查看有序集合中某个成员的分数：
 
 ZRANK 命令，查看有序集合中某个成员的排名。
 
-查看 result 有序集合中，“清华”的排名。
+语法：`ZRANK key member`
+
+查看 university  有序集合中，“清华”的排名。
 
 ```bash
-> ZRANK result 清华
+> ZRANK university 清华
 3
 ```
 
@@ -75,10 +81,12 @@ ZRANK 命令，查看有序集合中某个成员的排名。
 
 ZREVRANK 命令，查看有序集合中某个成员的反向排名。
 
-查看 result 有序集合中，“清华”的反向排名。
+语法：`ZREVRANK key member [WITHSCORE]`
+
+查看 university  有序集合中，“清华”的反向排名。
 
 ```bash
-> ZREVRANK result 清华
+> ZREVRANK university  清华
 0
 ```
 
@@ -88,10 +96,10 @@ ZREM 命令，用于删除有序集合中的成员。会返回该成员的排序
 
 语法：`ZREM key member [member ...]`
 
-删除 result 有序集合中的”清华“成员。
+删除 university  有序集合中的”清华“成员。
 
 ```bash
-> ZRANK result 清华
+> ZRANK university  清华
 3
 ```
 
@@ -104,10 +112,10 @@ ZINCRBY 命令，用于对某个成员的分数进行增加，返回增加后的
 
 语法：`ZINCRBY key increment member`
 
-在 result 有序集合中，为成员“复旦”增加 50 分
+在 university  有序集合中，为成员“复旦”增加 50 分
 
 ```bash
-> ZINCRBY result 50 复旦
+> ZINCRBY university  50 复旦
 700
 ```
 
@@ -117,9 +125,9 @@ ZREMRANGEBYSCORE 命令，用于删除有序集合中，某个排名范围之内
 
 语法：`ZREMRANGEBYSCORE key min max`
 
-在 result 有序集合中，删除分数在 650-660 之间的成员：
+在 university  有序集合中，删除分数在 650-660 之间的成员：
 
 ```bash
-> ZREMRANGEBYSCORE result 650 660
+> ZREMRANGEBYSCORE university  650 660
 1
 ```
