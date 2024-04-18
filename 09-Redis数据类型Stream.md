@@ -21,8 +21,8 @@ Stream 相关的命令，都以 X 开头。
 "1713418983534-0"
 ```
 
-* 符号 * 表示自动消息的 ID。
-* "course redis"是消息的内容。
+- 符号 * 表示自动消息的 ID。
+- "course redis"是消息的内容。
 
 手工指定的 ID（时间戳-序列号）
 
@@ -166,7 +166,7 @@ Stream 相关的命令，都以 X 开头。
 
 ## 七、XGROUP CREATE 命令
 
-使用 XGROUP 创建消费者组
+使用 XGROUP 命令，创建消费者组。
 
 ```bash
 > XGROUP CREATE zetian group1 0
@@ -179,14 +179,34 @@ Stream 相关的命令，都以 X 开头。
 
 现在，创建了一个名为 group1 的消费者组
 
+查看 Stream 消息中的详细内容：
+
+```bash
+> XRANGE zetian - +
+1) 1) "1713447421902-0"
+   2) 1) "course"
+      2) "redis\x11"
+2) 1) "1713447426489-0"
+   2) 1) "course"
+      2) "nginx"
+3) 1) "1713447430000-0"
+   2) 1) "course"
+      2) "docker"
+```
+
 ## 八、XGROUP CREATECONSUMER 命令
 
 有了组，再来添加两个消费者。
 
+Redis6.2.0 以上版本，可使用 CREATECONSUMER 子命令
+
 ```bash
+XGROUP CREATECONSUMER zetian group1 consumer1
+
+XGROUP CREATECONSUMER zetian group1 consumer2
+
+XGROUP CREATECONSUMER zetian group1 consumer3
 ```
-
-
 
 ## 八、XINFO CROUPS 命令
 
@@ -197,7 +217,7 @@ Stream 相关的命令，都以 X 开头。
 1) 1) "name"
    2) "group1"
    3) "consumers"
-   4) "0"
+   4) "3"
    5) "pending"
    6) "0"
    7) "last-delivered-id"
@@ -206,3 +226,22 @@ Stream 相关的命令，都以 X 开头。
 
 可以看到，返回了组的名称，消费者的数量，待处理的消息数等等。
 
+## 九、XREAD GROUP 命令
+
+现在已经有三个消费者了，可通过 XREAD GROUP 命令，来读取消息。
+
+```bash
+> XREADGROUP GROUP group1 consumer1 COUNT 2 BLOCK 3000 STREAMS zetian >
+1) 1) "zetian"
+   2) 1) 1) "1713447421902-0"
+         2) 1) "course"
+            2) "redis\x11"
+      2) 1) "1713447426489-0"
+         2) 1) "course"
+            2) "nginx"
+
+```
+
+- `>` 符号，表示从这个消息中，读取最新的消息。
+
+Redis6.2.0 之前，上方的命令，这将从流 `zetian` 中读取一条消息，并将其分配给名为 `consumer1` 的消费者。
