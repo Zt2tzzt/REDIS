@@ -23,6 +23,43 @@ apt update
 apt install redis-server
 ```
 
+如果你在 Ubuntu 上安装的 Redis 版本过低，可以尝试以下方法进行更新：
+
+Ⅰ、添加 Redis PPA
+
+在终端中执行以下命令，添加 Redis PPA：
+
+```bash
+sudo add-apt-repository ppa:redislabs/redis
+```
+
+Ⅱ、更新 apt cache
+
+执行以下命令更新 apt cache：
+
+```bash
+sudo apt-get update
+```
+
+Ⅲ、安装最新版本 Redis
+
+执行以下命令安装最新版本 Redis：
+
+```bash
+sudo apt-get install redis
+```
+
+四、安装完成后，你可以执行以下命令查看 Redis 版本：
+
+```bash
+redis-server -v
+
+# 或者
+
+redis-cli
+INFO SERVER
+```
+
 ### 3.Windows
 
 方式一：WSL，参考上方 Linux 的安装方式。
