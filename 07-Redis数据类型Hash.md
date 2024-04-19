@@ -52,10 +52,16 @@ Redis 中，哈希相关的命令，都是以 H 开头的。
 
 语法：`HDEL key field [field ...]`
 
+删除哈希 person 中的 age 键：
+
 ```bash
 > HDEL person age
 (integer) 1
+```
 
+再次查看哈希 person 中的键：
+
+```bash
 > HGETALL person
 1) "name"
 2) "zetian"
@@ -63,11 +69,11 @@ Redis 中，哈希相关的命令，都是以 H 开头的。
 
 ## 五、HEXISTS 命令
 
-使用 HEXISTS 命令，来判断某个键值对是否存在。
+使用 HEXISTS 命令，来判断某个键值对，是否存在。
 
 语法：`HEXISTS key field`
 
-判断键 person 哈希中，是否存在 name 字段和 age 字段。
+判断哈希 person 中，是否存在 name 字段和 age 字段。
 
 ```bash
 > HEXISTS person name
@@ -96,4 +102,3 @@ Redis 中，哈希相关的命令，都是以 H 开头的。
 > HLEN person
 (integer) 1
 ```
-

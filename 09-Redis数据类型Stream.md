@@ -21,8 +21,8 @@ Stream 相关的命令，都以 X 开头。
 "1713418983534-0"
 ```
 
-- 符号 * 表示自动消息的 ID。
-- "course redis"是消息的内容。
+- 符号 `*` 表示自动生成消息的 ID。
+- `course redis` 是消息的内容。
 
 手工指定的 ID（时间戳-序列号）
 
@@ -66,7 +66,7 @@ Stream 相关的命令，都以 X 开头。
       2) "Docker"
 ```
 
-- 符号 -、+ 号，分别表示开始、结束
+- 符号 `-`、`+` 号，分别表示开始、结束。
 
 可以看到，消息的 ID，消息的内容，都被打印出来了。
 
@@ -226,7 +226,7 @@ XGROUP CREATECONSUMER zetian group1 consumer3
 
 可以看到，返回了组的名称，消费者的数量，待处理的消息数等等。
 
-## 九、XREAD GROUP 命令
+## 九、XREADGROUP GROUP 命令
 
 现在已经有三个消费者了，可通过 XREAD GROUP 命令，来读取消息。
 
@@ -244,4 +244,4 @@ XGROUP CREATECONSUMER zetian group1 consumer3
 
 - `>` 符号，表示从这个消息中，读取最新的消息。
 
-Redis6.2.0 之前，上方的命令，这将从流 `zetian` 中读取一条消息，并将其分配给名为 `consumer1` 的消费者。
+Redis6.2.0 之前，上方的命令，将从流 `zetian` 中读取一条消息，并将其分配给名为 `consumer1` 的消费者。
