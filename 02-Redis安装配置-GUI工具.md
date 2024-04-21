@@ -91,7 +91,7 @@ Windows 在 CMD 命令行中启动 Reids，执行命令：
 redis-server.exe
 ```
 
-打开一个新的终端，用 Redis 的客户端，连接 Redis 服务，执行命令：
+打开一个新的终端，用 Redis 的客户端，进入 Redis 命令行客户端，执行命令：
 
 ```shell
 redis-cli

@@ -7,7 +7,7 @@ Set 是一种无序集合，它和列表的区别在于，
 
 ## 一、SADD 命令
 
-SADD 命令，用于在 Set 中添加一个元素。
+SADD 命令，用于在 Set 中添加元素。
 
 语法：`SADD key member [member ...]`
 
@@ -82,7 +82,9 @@ SREM 命令，用于删除集合中的元素。
 
 ## 五、集合的运算
 
-在 Redis 中，使用 SINTER、SUNION、SDIFF 等命令，进行集合的运算，比如：两个集合之间的交集，并集的运算。
+在 Redis 中，使用 SINTER、SUNION、SDIFF 等命令，进行集合的运算，
+
+比如：两个集合之间的交集，并集的运算。
 
 ### 1.SINTER 命令
 

@@ -35,7 +35,7 @@ HyprLogLog 相关的命令，都是以 PF 开头的。
 
 ## 二、PFCOUNT 命令
 
-使用 PFCOUNT 命令，查看 course 的计数。
+使用 PFCOUNT 命令，查看 course 的基数。
 
 语法：`PFCOUNT key [key ...]`
 

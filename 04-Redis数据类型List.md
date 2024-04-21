@@ -8,7 +8,7 @@ LPUSH、RPUSH 命令，分别用于将元素添加到列表的头部或者尾部
 
 语法：`LPUSH key element [element ...]`；`RPUSH key element [element ...]`
 
-添加一个列表 letter，其中有一个元素 a，元素 b，元素 c、d、e
+添加一个列表 letter，其中有一个元素 a，一个元素 b，三个元素 c、d、e
 
 ```bash
 > LPUSH letter a
@@ -28,9 +28,11 @@ LPUSH、RPUSH 命令，分别用于将元素添加到列表的头部或者尾部
 (integer) 6
 ```
 
+发现 LPUSH 命令，会返回列表的长度。
+
 ## 二、LRANGE 命令
 
-LRANGE 命令，用于获取列表的内容
+LRANGE 命令，用于获取列表的内容：
 
 语法：`LRANGE key start stop`
 
@@ -91,16 +93,6 @@ LTRIM 命令，删除列表中指定范围以外的元素。
 使用 LTRIME 命令，删除索引为 1-3 以外的元素。
 
 ```bash
-> LPUSH letter a b c d e
-(integer) 5
-
-> LRANGE letter 0 -1
-1) "e"
-2) "d"
-3) "c"
-4) "b"
-5) "a"
-
 > LTRIM letter 1 3
 "OK"
 

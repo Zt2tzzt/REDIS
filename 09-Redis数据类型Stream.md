@@ -17,12 +17,13 @@ Stream 相关的命令，都以 X 开头。
 > XADD zetian * course nginx
 "1713418972910-0"
 
-> XADD zetian * course Docker
+> XADD zetian * course docker
 "1713418983534-0"
 ```
 
-- 符号 `*` 表示自动生成消息的 ID。
-- `course redis` 是消息的内容。
+- `zetian` 是流的名称。
+- `*` 符号，表示自动生成消息的 ID。
+- `course zetian` 是流的消息。
 
 手工指定的 ID（时间戳-序列号）
 
@@ -222,13 +223,17 @@ XGROUP CREATECONSUMER zetian group1 consumer3
    6) "0"
    7) "last-delivered-id"
    8) "0-0"
+   9) "entries-read"
+   10) "null"
+   11) "lag"
+   12) "3"
 ```
 
 可以看到，返回了组的名称，消费者的数量，待处理的消息数等等。
 
 ## 九、XREADGROUP GROUP 命令
 
-现在已经有三个消费者了，可通过 XREAD GROUP 命令，来读取消息。
+现在已经有三个消费者了，可通过 XREADGROUP 命令，来读取消息。
 
 ```bash
 > XREADGROUP GROUP group1 consumer1 COUNT 2 BLOCK 3000 STREAMS zetian >
