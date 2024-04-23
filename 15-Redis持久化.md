@@ -33,11 +33,9 @@ Redis 是一个基于内存的数据库，如果没有持久化，那么一旦�
 
 Redis 持久化主要有两种方式：
 
-### 1.RDB
+### 1.方式一：RDB
 
-方式一：RDB（Redis Database）。
-
-在指定时间间隔内，将内存中的数据快照写入磁盘，它是某一个时间点上数据的完整副本。
+RDB（Redis Database）指的是在指定时间间隔内，将内存中的数据快照写入磁盘，它是某一个时间点上数据的完整副本。
 
 查看 Redis 的配置文件 `/etc/redis/redis.conf`，查看这个文件中的内容，发现有 save 相关的配置：
 
@@ -73,7 +71,7 @@ Redis 持久化主要有两种方式：
 #   * After 60 seconds if at least 10000 changes were performed # 60s 内有 10000 次修改，才进行一次快照。
 ```
 
-除了使用配置文件自动触发快照之外，还可以使用 save 命令来手工出发快照。
+除了使用配置文件自动触发快照之外，还可以使用 save 命令来手工触发快照。
 
 执行命令，保存一个键值对：
 
@@ -118,7 +116,7 @@ root@iZwz9clzmhmmlb65bbcvuuZ:/var/lib/redis# xxd dump.rdb
 root@iZwz9clzmhmmlb65bbcvuuZ:/var/lib/redis#
 ```
 
-快照文件不会保存快照之后的内容，所以 RDB 更适合用来做备份，比如可以在每天凌晨的时候，通过 crontab 来执行一次 SAVE 命令，来进行备份。
+快照文件不会保存快照之后的内容，所以 RDB 更适合用来做备份，比如在每天凌晨的时候，通过 crontab 来执行一次 SAVE 命令，进行备份。
 
 在生产环境中，一般为 Redis 开放的内存都会比较大，那么内存中的数据同步到硬盘的过程，就会持续比较长的时间。这段时间内，Redis 都会处于阻塞的状态，不能接收任何请求。
 
