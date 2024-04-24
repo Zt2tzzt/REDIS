@@ -37,7 +37,7 @@ Redis 持久化主要有两种方式：
 
 RDB（Redis Database）指的是在指定时间间隔内，将内存中的数据快照写入磁盘，它是某一个时间点上数据的完整副本。
 
-查看 Redis 的配置文件 `/etc/redis/redis.conf`，查看这个文件中的内容，发现有 save 相关的配置：
+查看 Redis 的配置文件 `/etc/redis/redis.conf`，发现其中有 save 相关的配置：
 
 ```shell
 # Save the DB to disk.

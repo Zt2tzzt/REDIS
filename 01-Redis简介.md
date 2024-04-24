@@ -18,7 +18,7 @@ Redis（Remote dictionary Server）是一个开源的，基于内存的，数据
 | List      | 列表     |
 | Set       | 集合     |
 | SortedSet | 有序集合 |
-| 哈希      | Hash     |
+| Hash      | 哈希     |
 
 五种高级数据类型：
 

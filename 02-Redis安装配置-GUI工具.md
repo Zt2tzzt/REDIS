@@ -15,7 +15,7 @@ brew install redis
 使用系统自带的安装工具安装，执行命令：
 
 ```shell
-# CentO
+# CentOS
 yum install redis
 
 # Ubuntu
@@ -75,7 +75,7 @@ docker run -d \
   redis
 ```
 
-方式三：.exe 安装文件安装。
+方式三（不推荐）：.exe 安装文件安装。
 
 ## 二、Redis 启动
 

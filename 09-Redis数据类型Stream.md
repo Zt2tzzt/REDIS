@@ -107,7 +107,7 @@ Stream 相关的命令，都以 X 开头。
 
 - `MEXLEN 0` 表示删除 Stream 中所有的消息。
 
-输出 2 表示删除了 2 条消息。
+输出 2，表示删除了 2 条消息。
 
 再查看 Stream 中的消息，可以看到没有消息了。
 
@@ -118,7 +118,7 @@ Stream 相关的命令，都以 X 开头。
 
 ## 六、XREAD 命令
 
-消息创建后，使用 XREAD 命令，进行消费。
+消息创建后，使用 XREAD 命令，读取消费。
 
 语法：`XREAD [COUNT count] [BLOCK milliseconds] STREAMS key [key ...] id [id ...]`
 
@@ -147,7 +147,7 @@ Stream 相关的命令，都以 X 开头。
 (nil)
 ```
 
-获取从现在开始，以后的消息，使用 `$` 符号。
+在 10s 内，在 zetian 流里，获取从现在开始的消息，使用 `$` 符号。
 
 ```bash
 > XREAD COUNT 2 BLOCK 10000 STREAMS zetian $
@@ -199,7 +199,7 @@ Stream 相关的命令，都以 X 开头。
 
 有了组，再来添加两个消费者。
 
-Redis6.2.0 以上版本，可使用 CREATECONSUMER 子命令
+Redis 6.2.0 以上版本，可使用 CREATECONSUMER 子命令
 
 ```bash
 XGROUP CREATECONSUMER zetian group1 consumer1
