@@ -26,6 +26,8 @@ A(主节点（master）) -->B(从节点（slave）)
 
 ## 一、命令行配置
 
+该方式不是很常用，了解即可
+
 查看当前节点角色，执行命令
 
 ```bash
@@ -35,7 +37,7 @@ A(主节点（master）) -->B(从节点（slave）)
 3) (empty array)
 ```
 
-配置所属主节点（不是很常用，了解即可）
+配置所属主节点：
 
 ```bash
 replicaof [host] [port]
@@ -64,6 +66,8 @@ cp redis.conf redis-6380.conf
 打开 `redis-6380.conf` 配置文件，
 
 找到 `port`，`pidfile` 进行配置：
+
+redis-6380.conf
 
 ```shell
 # port 6379

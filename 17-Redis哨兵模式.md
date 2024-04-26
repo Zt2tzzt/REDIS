@@ -22,6 +22,8 @@ vim sentinel.conf
 
 在其中进行如下配置：
 
+sentinel.conf
+
 ```shell
 sentinel monitor master 127.0.0.1 6379 1
 ```

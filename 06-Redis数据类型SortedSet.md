@@ -128,6 +128,6 @@ ZREMRANGEBYSCORE 命令，用于删除有序集合中，某个排名范围之内
 在 university  有序集合中，删除分数在 650-660 之间的成员：
 
 ```bash
-> ZREMRANGEBYSCORE university  650 660
+> ZREMRANGEBYSCORE university 650 660
 1
 ```

@@ -66,10 +66,16 @@ RDB（Redis Database）指的是在指定时间间隔内，将内存中的数据
 ```bash
 # save <seconds> <changes> [<seconds> <changes> ...]
 ...
-#   * After 3600 seconds (an hour) if at least 1 change was performed # 3600s 内（1 小时内）只要有一次修改，就进项一次快照
-#   * After 300 seconds (5 minutes) if at least 100 changes were performed # 300s 内有 100 次修改才进行一次快照。
-#   * After 60 seconds if at least 10000 changes were performed # 60s 内有 10000 次修改，才进行一次快照。
+#   * After 3600 seconds (an hour) if at least 1 change was performed
+#   * After 300 seconds (5 minutes) if at least 100 changes were performed
+#   * After 60 seconds if at least 10000 changes were performed
 ```
+
+上面的三个配置选项，分别代表：
+
+- 3600s 内（1 小时内）只要有一次修改，就进项一次快照
+- 300s 内有 100 次修改才进行一次快照。
+- 60s 内有 10000 次修改，才进行一次快照。
 
 除了使用配置文件自动触发快照之外，还可以使用 save 命令来手工触发快照。
 
@@ -80,7 +86,7 @@ RDB（Redis Database）指的是在指定时间间隔内，将内存中的数据
 OK
 ```
 
-在命令行终端，输入 save 命令
+在命令行终端，执行 save 命令
 
 ```bash
 127.0.0.1:6379> SAVE
