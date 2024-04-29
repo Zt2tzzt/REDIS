@@ -31,7 +31,7 @@ sentinel monitor master 127.0.0.1 6379 1
 - `master`，主节点的名称。
 - `1`，表示只需要一个哨兵节点同意，就可以进行故障转移了。
 
-没有 redis-sentinel 服务的，先安装该服务
+服务器上没有 redis-sentinel 服务的，先安装该服务
 
 ```shell
 apt install redis-sentinel
