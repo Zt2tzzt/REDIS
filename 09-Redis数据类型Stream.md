@@ -249,4 +249,4 @@ XGROUP CREATECONSUMER zetian group1 consumer3
 
 - `>` 符号，表示从这个消息中，读取最新的消息。
 
-Redis6.2.0 之前，上方的命令，将从流 `zetian` 中读取一条消息，并将其分配给名为 `consumer1` 的消费者。
+Redis 6.2.0 之前，上方的命令，将从流 `zetian` 中读取一条消息，并将其分配给名为 `consumer1` 的消费者。
