@@ -99,7 +99,7 @@ ZREM 命令，用于删除有序集合中的成员。会返回该成员的排序
 删除 university  有序集合中的”清华“成员。
 
 ```bash
-> ZRANK university 清华
+> ZREM university 清华
 3
 ```
 
