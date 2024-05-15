@@ -62,9 +62,11 @@ INFO SERVER
 
 ### 3.Windows
 
-方式一：WSL，参考上方 Linux 的安装方式。
+WSL，参考上方 Linux 的安装方式。
 
-方式二：Docker，查看 Redis 在 Docker 中的[官方文档](https://hub.docker.com/_/redis)。
+### 4.Docker
+
+查看 Redis 在 Docker 中的[官方文档](https://hub.docker.com/_/redis)。
 
 执行命令：
 
