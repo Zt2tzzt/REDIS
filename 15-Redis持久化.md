@@ -6,6 +6,10 @@
 
 执行命令：
 
+```shell
+systemctl status redis
+```
+
 ```bash
 root@iZwz9clzmhmmlb65bbcvuuZ:~# systemctl status redis
 ● redis-server.service - Advanced key-value store
@@ -29,7 +33,7 @@ ExecStart=/usr/bin/redis-server /etc/redis/redis.conf
 
 ## 二、Redis 持久化
 
-Redis 是一个基于内存的数据库，如果没有持久化，那么一旦服务器重启或者断电，那么以前的数据都会丢失。
+Redis 是一个基于内存的数据库，如果没有持久化，那么一旦服务器重启或者断电，以前的数据都会丢失。
 
 Redis 持久化主要有两种方式：
 
@@ -73,7 +77,7 @@ RDB（Redis Database）指的是在指定时间间隔内，将内存中的数据
 
 上面的三个配置选项，分别代表：
 
-- 3600s 内（1 小时内）只要有一次修改，就进项一次快照
+- 3600s 内（1 小时内）只要有一次修改，就进行一次快照
 - 300s 内有 100 次修改才进行一次快照。
 - 60s 内有 10000 次修改，才进行一次快照。
 
