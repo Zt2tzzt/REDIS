@@ -62,7 +62,9 @@ INFO SERVER
 
 ### 3.Windows
 
-WSL，参考上方 Linux 的安装方式。
+方式一：WSL，参考上方 Linux 的安装方式。
+
+方式二（不推荐）：.exe 安装文件安装。
 
 ### 4.Docker
 
@@ -74,10 +76,18 @@ WSL，参考上方 Linux 的安装方式。
 docker run -d \
   --name redis \
   -p 6379:6379 \
+  -e REDIS_PASSWORD=yourpassword \
   redis
 ```
 
-方式三（不推荐）：.exe 安装文件安装。
+redis 容器创建后，设置密码：
+
+```sh
+docker exec -it redis redis-cli
+127.0.0.1:6379> CONFIG SET requirepass newpassword
+```
+
+> Redis 中没有用户的概念，只需使用密码就可连接。
 
 ## 二、Redis 启动
 
@@ -118,3 +128,4 @@ RedisInsight 是 Redis 官方出品的可视化管理工具。
 点击左下方【Command Helper】，打开一个命令的帮助文档，可在搜索框中输入要搜索的命令，在 CLI 窗口中输入的命令，也会在该文档中显示对应的说明页面。
 
 点击左下方【Profilter】，打开一个执行日志工具，用来查看 Redis 的执行日志。
+

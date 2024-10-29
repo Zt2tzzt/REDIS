@@ -4,6 +4,8 @@ Redis 中的数据，是以键值对的形式存储的。
 
 所以，设置数据时，需要指定一个键，和一个值。它们之间以一个空格分隔。
 
+- 键是字符串，值有若干类型
+
 ## 一、SET、GET 命令
 
 SET 语法：`SET key value [NX | XX] [GET] [EX seconds | PX milliseconds | EXAT unix-time-seconds | PXAT unix-time-milliseconds | KEEPTTL]`
