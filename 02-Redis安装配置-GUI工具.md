@@ -89,7 +89,7 @@ docker exec -it redis redis-cli
 
 > Redis 中没有用户的概念，只需使用密码就可连接。
 
-## 二、Redis 启动
+## 二、Redis 启动和关闭
 
 Mac、Linux 在终端启动 Redis，执行命令：
 
@@ -109,7 +109,43 @@ redis-server.exe
 redis-cli
 ```
 
-## 三、Redis GUI 工具
+关闭 Redis，执行命令：
+
+```sh
+redis-cli shutdown
+```
+
+## 三、Redis 设置密码
+
+进入 redis 命令行，执行命令：
+
+```mysql
+redis-cli
+```
+
+设置密码，执行命令：
+
+```mysql
+CONFIG SET requirepass newpassword
+```
+
+## 四、Redis 远程访问
+
+使用 vim 打开 Redis 配置文件：
+
+```sh
+vim /etc/redis/redis.conf
+```
+
+进行如下修改：
+
+```conf
+bind 0.0.0.0
+
+protected-mode no
+```
+
+## 五、Redis GUI 工具
 
 RedisInsight 是 Redis 官方出品的可视化管理工具。
 
@@ -128,4 +164,3 @@ RedisInsight 是 Redis 官方出品的可视化管理工具。
 点击左下方【Command Helper】，打开一个命令的帮助文档，可在搜索框中输入要搜索的命令，在 CLI 窗口中输入的命令，也会在该文档中显示对应的说明页面。
 
 点击左下方【Profilter】，打开一个执行日志工具，用来查看 Redis 的执行日志。
-
