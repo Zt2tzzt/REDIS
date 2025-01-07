@@ -89,7 +89,9 @@ docker exec -it redis redis-cli
 
 > Redis 中没有用户的概念，只需使用密码就可连接。
 
-## 二、Redis 启动和关闭
+## 二、Redis 启动和关闭和重启
+
+### 2.1.Redis 启动
 
 Mac、Linux 在终端启动 Redis，执行命令：
 
@@ -109,10 +111,26 @@ redis-server.exe
 redis-cli
 ```
 
+### 2.2.Redis 关闭
+
 关闭 Redis，执行命令：
 
 ```sh
 redis-cli shutdown
+```
+
+### 2.3.Redis 重启
+
+执行命令：
+
+```sh
+redis-server restart
+```
+
+或者执行命令：
+
+```sh
+systemctl restart redis
 ```
 
 ## 三、Redis 设置密码
