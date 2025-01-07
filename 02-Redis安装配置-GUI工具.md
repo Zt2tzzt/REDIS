@@ -135,6 +135,8 @@ systemctl restart redis
 
 ## 三、Redis 设置密码
 
+方式一：
+
 进入 redis 命令行，执行命令：
 
 ```mysql
@@ -145,6 +147,22 @@ redis-cli
 
 ```mysql
 CONFIG SET requirepass newpassword
+```
+
+- 该方式在 Redis 服务重启后，密码将失效；
+
+方式二：
+
+使用 vim 打开 Redis 配置文件：
+
+```sh
+vim /etc/redis/redis.conf
+```
+
+进行如下修改：
+
+```conf
+requirepass yourpassword
 ```
 
 ## 四、Redis 远程访问
